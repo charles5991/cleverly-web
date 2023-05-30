@@ -18,6 +18,10 @@ export default function ProjectsPage() {
   ]);
   const [averageSale, setAverageSale] = useState<[number]>([0]);
   const [roas, setRoas] = useState<number>(0);
+  const [clicks, setClicks] = useState<number>(0);
+  const [conversions, setConversions] = useState<number>(0);
+  const [purchases, setPurchases] = useState<number>(0);
+  const [revenue, setRevenue] = useState<number>(0);
 
   useEffect(() => {
     const budgetValue = budget[0];
@@ -34,14 +38,25 @@ export default function ProjectsPage() {
       averageSaleValue === 0
     ) {
       setRoas(0);
+      setClicks(0);
+      setConversions(0);
+      setPurchases(0);
+      setRevenue(0);
       return;
     }
 
-    const clicks = budgetValue / cpcValue;
-    const conversions = clicks * (conversionRateValue / 100);
-    const purchases = conversions * (conversionToPurchaseValue / 100);
-    const revenue = purchases * averageSaleValue;
+    const calculatedClicks = budgetValue / cpcValue;
+    const calculatedConversions =
+      calculatedClicks * (conversionRateValue / 100);
+    const calculatedPurchases =
+      calculatedConversions * (conversionToPurchaseValue / 100);
+    const calculatedRevenue = calculatedPurchases * averageSaleValue;
 
+    setClicks(calculatedClicks);
+    setConversions(calculatedConversions);
+    setPurchases(calculatedPurchases);
+    setRevenue(calculatedRevenue);
+    setRoas((calculatedRevenue / budgetValue) * 100);
     setRoas((revenue / budgetValue) * 1);
   }, [budget, cpc, conversionRate, conversionToPurchase, averageSale]);
 
@@ -215,11 +230,18 @@ export default function ProjectsPage() {
             </h2>
           </div>
 
-          <div className="flex flex-col w-full gap-8  mx-auto border-t border-gray-900/10  lg:mx-0  lg:border-t-0 ">
-            <Card>
-              <p className="text-xl font-bold">ROAS: {roas.toFixed(0)} %</p>
-            </Card>
-            <Card>123</Card>
+          <div className="flex flex-row w-full  mx-auto border-t border-gray-900/10  lg:mx-0  lg:border-t-0 ">
+              <Card>
+                <div className="max-w-5xl">
+                <p className="text-xl font-bold">ROAS: {roas.toFixed(0)} %</p>
+                </div>
+              </Card>
+              <Card>
+                <p>Clicks: {clicks.toFixed(0)}</p>
+                <p>Conversions: {conversions.toFixed(0)}</p>
+                <p>Purchases: {purchases.toFixed(0)}</p>
+                <p>Revenue: {revenue.toFixed(0)}</p>
+              </Card>
           </div>
         </div>
         <div className="hidden w-full h-px md:block bg-white" />
