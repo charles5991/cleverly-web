@@ -1,8 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import { Slider } from "@radix-ui/react-slider";
-import { Line } from "react-chartjs-2";
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
