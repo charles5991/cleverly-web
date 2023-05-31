@@ -62,9 +62,9 @@ export default function ProjectsPage() {
 
   return (
     <div className="relative pb-16">
-      <Navigation />
+      {/* <Navigation /> */}
       <div className="px-6 pt-16 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="max-w-2xl mx-auto lg:mx-0">
+        {/* <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
             The Advertising ROI Calculator
           </h2>
@@ -75,155 +75,249 @@ export default function ProjectsPage() {
             gamble with your business. Know what kind of ROI you can expect.
           </p>
         </div>
-        <div className="w-full h-px bg-black" />
+        <div className="w-full h-px bg-black" /> */}
         <div className="grid grid-cols-1 gap-8 mx-auto text-center lg:grid-cols-1">
-          <Card>
-            <div className="p-4 space-y-4">
-              <div>
-                <Card>
-                  <div className="p-4 space-y-4">
-                    <label className="block text-gray-500">
-                      YOUR BUDGET
-                      <p className="font-bold text-2xl text-black">
-                        $ {budget}
+          <div className="p-4 space-y-4">
+            <div>
+              <Card>
+                <div className=" space-y-4">
+                  <div className="flex items-center bg-blue-800">
+                    <img
+                      src="./budget.png"
+                      width={70}
+                      className="my-6 mx-8"
+                    ></img>
+                    <p className="text-white text-lg font-semibold">BUDGET</p>
+                    <div className="flex-grow">
+                      <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
+                        The total amount of money allocated for advertising
+                        expenses during a specific period.
                       </p>
-                      <Slider.Root
-                        className="relative flex items-center w-full h-6 select-none"
-                        value={[budget[0]]}
-                        onValueChange={(newValues) => setBudget([newValues[0]])}
-                        min={0}
-                        max={50000}
-                      >
-                        <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
-                          <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
-                        </Slider.Track>
-                        <Slider.Thumb
-                          className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
-                          data-tip="1.0"
-                        />
-                      </Slider.Root>
-                      <div className="flex justify-between w-full mt-2">
-                        <p className="text-sm text-gray-500">$ 0 </p>
-                        <p className="text-sm text-gray-500">$ 50 000</p>
-                      </div>
-                    </label>
+                    </div>
                   </div>
-                </Card>
-              </div>
 
-              <div>
-                <label className="block text-gray-500">
-                  YOUR CPC
-                  <p className="font-bold text-2xl text-black">$ {cpc}</p>
-                  <Slider.Root
-                    className="relative flex items-center w-full h-6 select-none"
-                    min={0.1}
-                    max={20}
-                    step={0.1}
-                    value={[cpc[0]]}
-                    onValueChange={(newValues) => setCPC([newValues[0]])}
-                  >
-                    <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
-                      <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
-                    </Slider.Track>
-                    <Slider.Thumb
-                      className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
-                      data-tip="1.0"
-                    />
-                  </Slider.Root>
-                  <div className="flex justify-between w-full mt-2">
-                    <p className="text-sm text-gray-500">$ {0.1}</p>
-                    <p className="text-sm text-gray-500">$ {20}</p>
-                  </div>
-                </label>
-              </div>
-
-              <div>
-                <label className="block text-gray-500">
-                  YOUR ESTIMATED CONVERSION RATE:
-                  <p className="font-bold text-2xl text-black">
-                    {conversionRate} %
-                  </p>
-                  <Slider.Root
-                    className="relative flex items-center w-full h-6 select-none"
-                    value={[conversionRate[0]]}
-                    onValueChange={(newValues) =>
-                      setConversionRate([newValues[0]])
-                    }
-                  >
-                    <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
-                      <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
-                    </Slider.Track>
-                    <Slider.Thumb
-                      className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
-                      data-tip="1.0"
-                    />
-                  </Slider.Root>
-                  <div className="flex justify-between w-full mt-2">
-                    <p className="text-sm text-gray-500">{0}%</p>
-                    <p className="text-sm text-gray-500">{100}%</p>
-                  </div>
-                </label>
-              </div>
-              <div>
-                <label className="block text-gray-500">
-                  YOUR CONVERSION TO PURCHASE RATE
-                  <p className="font-bold text-2xl text-black">
-                    {conversionToPurchase} %
-                  </p>
-                  <Slider.Root
-                    className="relative flex items-center w-full h-6 select-none"
-                    value={[conversionToPurchase[0]]}
-                    onValueChange={(newValues) =>
-                      setConversionToPurchase([newValues[0]])
-                    }
-                  >
-                    <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
-                      <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
-                    </Slider.Track>
-                    <Slider.Thumb
-                      className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
-                      data-tip="1.0"
-                    />
-                  </Slider.Root>
-                  <div className="flex justify-between w-full mt-2">
-                    <p className="text-sm text-gray-500">{0}%</p>
-                    <p className="text-sm text-gray-500">{100}%</p>
-                  </div>
-                </label>
-              </div>
-
-              <div>
-                <label className="block text-gray-500">
-                  YOUR BUDGET
-                  <p className="font-bold text-2xl text-black">
-                    $ {averageSale}{" "}
-                  </p>
-                  <Slider.Root
-                    className="relative flex items-center w-full h-6 select-none"
-                    min={0}
-                    max={1000}
-                    value={[averageSale[0]]}
-                    onValueChange={(newValues) =>
-                      setAverageSale([newValues[0]])
-                    }
-                  >
-                    <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
-                      <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
-                    </Slider.Track>
-                    <Slider.Thumb
-                      className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
-                      data-tip="1.0"
-                    />
-                  </Slider.Root>
-                  <div className="flex justify-between w-full mt-2">
-                    <p className="text-sm text-gray-500">$ {0}</p>
-                    <p className="text-sm text-gray-500">$ {5000}</p>
-                  </div>
-                </label>
-              </div>
+                  <label className="block text-gray-500 px-6 pb-2">
+                    YOUR BUDGET
+                    <p className="font-bold text-2xl text-black">$ {budget}</p>
+                    <Slider.Root
+                      className="relative flex items-center w-full h-6 select-none"
+                      value={[budget[0]]}
+                      onValueChange={(newValues) => setBudget([newValues[0]])}
+                      min={0}
+                      max={50000}
+                      step={10}
+                    >
+                      <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
+                        <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
+                      </Slider.Track>
+                      <Slider.Thumb
+                        className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
+                        data-tip="1.0"
+                      />
+                    </Slider.Root>
+                    <div className="flex justify-between w-full mt-2">
+                      <p className="text-sm text-gray-500">$ 0 </p>
+                      <p className="text-sm text-gray-500">$ 50 000</p>
+                    </div>
+                  </label>
+                </div>
+              </Card>
             </div>
-          </Card>
+
+            <div>
+              <Card>
+                <div className=" space-y-4">
+                  <div className="flex items-center bg-blue-800">
+                    <img src="./cpc.png" width={50} className="my-6 mx-8"></img>
+                    <p className="text-white w-50 text-lg font-semibold">
+                      COST PER CLICK (CPC)
+                    </p>
+                    <div className="flex-grow">
+                      <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
+                        The average estimated cost incurred for each click on an
+                        advertisement.
+                      </p>
+                    </div>
+                  </div>
+                  <label className="block text-gray-500 px-6 pb-2">
+                    YOUR CPC
+                    <p className="font-bold text-2xl text-black">$ {cpc}</p>
+                    <Slider.Root
+                      className="relative flex items-center w-full h-6 select-none"
+                      min={0.1}
+                      max={20}
+                      step={0.1}
+                      value={[cpc[0]]}
+                      onValueChange={(newValues) => setCPC([newValues[0]])}
+                    >
+                      <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
+                        <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
+                      </Slider.Track>
+                      <Slider.Thumb
+                        className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
+                        data-tip="1.0"
+                      />
+                    </Slider.Root>
+                    <div className="flex justify-between w-full mt-2">
+                      <p className="text-sm text-gray-500">$ {0.1}</p>
+                      <p className="text-sm text-gray-500">$ {20}</p>
+                    </div>
+                  </label>
+                </div>
+              </Card>
+            </div>
+
+            <div>
+              <Card>
+                <div className=" space-y-4">
+                  <div className="flex items-center bg-blue-800">
+                    <img
+                      src="./Estimated.png"
+                      width={80}
+                      className="my-6 mx-8"
+                    ></img>
+                    <p className="text-white w-50 text-lg font-semibold pr-20">
+                      ESTIMATED CONVERSION RATE
+                    </p>
+                    <div className="flex-grow">
+                      <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
+                        The anticipated percentage of website visitors who are
+                        expected to take a desired action, such as making a
+                        purchase or filling out a form. This action is based on
+                        the percentage that convert after entering site.
+                      </p>
+                    </div>
+                  </div>
+                  <label className="block text-gray-500 px-6 pb-2">
+                    YOUR ESTIMATED CONVERSION RATE:
+                    <p className="font-bold text-2xl text-black">
+                      {conversionRate} %
+                    </p>
+                    <Slider.Root
+                      className="relative flex items-center w-full h-6 select-none"
+                      value={[conversionRate[0]]}
+                      onValueChange={(newValues) =>
+                        setConversionRate([newValues[0]])
+                      }
+                    >
+                      <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
+                        <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
+                      </Slider.Track>
+                      <Slider.Thumb
+                        className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
+                        data-tip="1.0"
+                      />
+                    </Slider.Root>
+                    <div className="flex justify-between w-full mt-2">
+                      <p className="text-sm text-gray-500">{0}%</p>
+                      <p className="text-sm text-gray-500">{100}%</p>
+                    </div>
+                  </label>
+                </div>
+              </Card>
+            </div>
+
+            <div>
+              <Card>
+                <div className=" space-y-4">
+                  <div className="flex items-center bg-blue-800">
+                    <img
+                      src="./Conversion.png"
+                      width={70}
+                      className="my-6 mx-8"
+                    ></img>
+                    <p className="text-white w-50 text-lg font-semibold">
+                      CONVERSION TO PURCHASE RATE
+                    </p>
+                    <div className="flex-grow">
+                      <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
+                        The expected percentage of conversions or desired
+                        actions (e.g., form submissions) that are likely to
+                        result in a completed purchase. This is the action of
+                        purchase after converting on website.
+                      </p>
+                    </div>
+                  </div>
+                  <label className="block text-gray-500 px-6 pb-2">
+                    YOUR CONVERSION TO PURCHASE RATE
+                    <p className="font-bold text-2xl text-black">
+                      {conversionToPurchase} %
+                    </p>
+                    <Slider.Root
+                      className="relative flex items-center w-full h-6 select-none"
+                      value={[conversionToPurchase[0]]}
+                      onValueChange={(newValues) =>
+                        setConversionToPurchase([newValues[0]])
+                      }
+                    >
+                      <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
+                        <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
+                      </Slider.Track>
+                      <Slider.Thumb
+                        className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
+                        data-tip="1.0"
+                      />
+                    </Slider.Root>
+                    <div className="flex justify-between w-full mt-2">
+                      <p className="text-sm text-gray-500">{0}%</p>
+                      <p className="text-sm text-gray-500">{100}%</p>
+                    </div>
+                  </label>
+                </div>
+              </Card>
+            </div>
+
+            <div>
+              <Card>
+                <div className=" space-y-4">
+                  <div className="flex items-center bg-blue-800">
+                    <img
+                      src="./average.png"
+                      width={70}
+                      className="my-6 mx-8"
+                    ></img>
+                    <p className="text-white w-50 text-lg font-semibold">
+                      AVERAGE SALE PER CUSTOMER
+                    </p>
+                    <div className="flex-grow">
+                      <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
+                        The average monetary value generated from a single
+                        customer's purchase or transaction.
+                      </p>
+                    </div>
+                  </div>
+                  <label className="block text-gray-500 px-6 pb-2">
+                    YOUR BUDGET
+                    <p className="font-bold text-2xl text-black">
+                      $ {averageSale}{" "}
+                    </p>
+                    <Slider.Root
+                      className="relative flex items-center w-full h-6 select-none"
+                      min={0}
+                      max={1000}
+                      value={[averageSale[0]]}
+                      onValueChange={(newValues) =>
+                        setAverageSale([newValues[0]])
+                      }
+                    >
+                      <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full outline-none">
+                        <Slider.Range className="absolute h-full bg-red-600 rounded-full outline-none" />
+                      </Slider.Track>
+                      <Slider.Thumb
+                        className="z-50 block w-4 h-4 font-bold bg-red-600 rounded-full shadow-xl outline-none ring-red-500 focus:ring-4"
+                        data-tip="1.0"
+                      />
+                    </Slider.Root>
+                    <div className="flex justify-between w-full mt-2">
+                      <p className="text-sm text-gray-500">$ {0}</p>
+                      <p className="text-sm text-gray-500">$ {5000}</p>
+                    </div>
+                  </label>
+                </div>
+              </Card>
+            </div>
+          </div>
+
           <div className="md:max-w-[10px] sm:max-w-auto mx-10 lg:mx-0 ">
             <h2 className="text-3xl font-semibold tracking-light text-black sm:text-4xl">
               RESULTS
@@ -231,17 +325,19 @@ export default function ProjectsPage() {
           </div>
 
           <div className="flex flex-row w-full  mx-auto border-t border-gray-900/10  lg:mx-0  lg:border-t-0 ">
-              <Card>
+            <Card>
+              <div className="row gap-1">
                 <div className="max-w-5xl">
-                <p className="text-xl font-bold">ROAS: {roas.toFixed(0)} %</p>
+                  <p>NUMBER OF CLICKS {clicks.toFixed(0)}</p>
+                  <p>Conversions: {conversions.toFixed(0)}</p>
+                  <p>Purchases: {purchases.toFixed(0)}</p>
+                  <p>Revenue: {revenue.toFixed(0)}</p>
                 </div>
-              </Card>
-              <Card>
-                <p>Clicks: {clicks.toFixed(0)}</p>
-                <p>Conversions: {conversions.toFixed(0)}</p>
-                <p>Purchases: {purchases.toFixed(0)}</p>
-                <p>Revenue: {revenue.toFixed(0)}</p>
-              </Card>
+                <div className="max-w-5xl">
+                  <p className="text-xl font-bold">ROAS: {roas.toFixed(0)} %</p>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
         <div className="hidden w-full h-px md:block bg-white" />
