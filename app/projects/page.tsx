@@ -81,12 +81,13 @@ export default function ProjectsPage() {
             <div>
               <Card>
                 <div className=" space-y-4">
-                  <div className="flex items-center bg-blue-800">
+                  <div className="flex sm:flex-col items-center bg-blue-800">
                     <img
                       src="./budget.png"
                       width={70}
                       className="my-6 mx-8"
-                    ></img>
+                      alt="Budget"
+                    />
                     <p className="text-white text-lg font-semibold">BUDGET</p>
                     <div className="flex-grow">
                       <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
@@ -318,23 +319,87 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          <div className="md:max-w-[10px] sm:max-w-auto mx-10 lg:mx-0 ">
+          <div className="md:max-w-[16px] sm:max-w-auto mx-16 lg:mx-10 ">
             <h2 className="text-3xl font-semibold tracking-light text-black sm:text-4xl">
               RESULTS
             </h2>
           </div>
 
-          <div className="flex flex-row w-full  mx-auto border-t border-gray-900/10  lg:mx-0  lg:border-t-0 ">
+          <div className="mx-4">
             <Card>
-              <div className="row gap-1">
-                <div className="max-w-5xl">
-                  <p>NUMBER OF CLICKS {clicks.toFixed(0)}</p>
-                  <p>Conversions: {conversions.toFixed(0)}</p>
-                  <p>Purchases: {purchases.toFixed(0)}</p>
-                  <p>Revenue: {revenue.toFixed(0)}</p>
+              <div className="grid grid-cols-2">
+                <div className="col-span-1">
+                  <div className="p-5 bg-white">
+                    <div className="flex text-left ">
+                      <div className="flex">
+                        <div className="block text-gray-500 px-6 pb-2">
+                          <p>NUMBER OF CLICKS</p>
+                          <p className="font-bold text-2xl text-black">
+                            {clicks.toLocaleString("en-US", {
+                              maximumFractionDigits: 0,
+                            })}
+                          </p>
+                        </div>
+                        <div className="block text-gray-500 px-6 pb-2">
+                          <p>NUMBER OF LEADS</p>
+                          <p className="font-bold text-2xl text-black">173</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <div className="flex text-left">
+                      <div className="flex">
+                        <div className="block text-gray-500 px-6 pb-2">
+                          <p>CONVENSION</p>
+                          <p className="font-bold text-2xl text-black">
+                            {conversions.toLocaleString("en-US", {
+                              maximumFractionDigits: 0,
+                            })}
+                            %
+                          </p>
+                        </div>
+                        <div className="block text-gray-500 px-[72px] pb-2">
+                          <p>PURCHASES</p>
+                          <p className="font-bold text-2xl text-black">
+                            $ {purchases.toFixed(0)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-5 bg-white">
+                    <div className="flex text-left">
+                      <div className="flex ">
+                        <div className="block text-gray-500 px-6 pb-2">
+                          <p>EXPECTED REVENUE</p>
+                          <p className="font-bold text-2xl text-black">
+                            ${" "}
+                            {revenue.toLocaleString("en-US", {
+                              maximumFractionDigits: 0,
+                            })}
+                          </p>
+                        </div>
+                        <div className="block text-gray-500 px-4 pb-2">
+                          <p>EXPECTED PROFIT</p>
+                          <p className="font-bold text-2xl text-black">
+                            $2,306,241
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="max-w-5xl">
-                  <p className="text-xl font-bold">ROAS: {roas.toFixed(0)} %</p>
+                <div className="col-span-1 flex flex-col text-left">
+                  <div className="p-5 flex-grow bg-red-500 py-24 px-16">
+                    <p className=" text-white">RETURN ON AD SPEND</p>
+                    <p className="font-semibold text-7xl text-white pb-10">
+                      {roas.toFixed(0)} %
+                    </p>
+                    <button className="bg-blue-700 rounded-full w-84 px-16 py-4 text-white">
+                      SHARE RESULT
+                    </button>
+                  </div>
                 </div>
               </div>
             </Card>
