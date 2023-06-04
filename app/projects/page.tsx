@@ -80,15 +80,16 @@ export default function ProjectsPage() {
           <div className="p-4 space-y-4">
             <div>
               <Card>
-                <div className=" space-y-4">
-                  <div className="flex sm:flex-col items-center bg-blue-800">
+                <div className=" space-y-4 flex-grow-0 flex-shrink-0">
+                  <div className="flex items-center bg-blue-800">
                     <img
                       src="./budget.png"
                       width={70}
                       className="my-6 mx-8"
-                      alt="Budget"
-                    />
-                    <p className="text-white text-lg font-semibold">BUDGET</p>
+                    ></img>
+                    <p className="text-white w-50 text-lg font-semibold">
+                      BUDGET
+                    </p>
                     <div className="flex-grow">
                       <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
                         The total amount of money allocated for advertising
