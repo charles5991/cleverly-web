@@ -76,7 +76,7 @@ export default function ProjectsPage() {
           </p>
         </div>
         <div className="w-full h-px bg-black" /> */}
-        <div className="grid grid-cols-1 gap-8 mx-auto text-center lg:grid-cols-1">
+        <div className="md:grid md:grid-cols-1 gap-8 mx-auto text-center lg:grid-cols-1">
           <div className="p-4 space-y-4">
             <div>
               <Card>
@@ -128,7 +128,7 @@ export default function ProjectsPage() {
 
             <div>
               <Card>
-                <div className=" space-y-4">
+                <div className=" space-y-4 ">
                   <div className="flex items-center bg-blue-800">
                     <img src="./cpc.png" width={50} className="my-6 mx-8"></img>
                     <p className="text-white w-50 text-lg font-semibold">
@@ -328,7 +328,7 @@ export default function ProjectsPage() {
 
           <div className="mx-4">
             <Card>
-              <div className="grid grid-cols-2">
+              <div className="md:grid md:grid-cols-2 shrink-0 sm:inline">
                 <div className="col-span-1">
                   <div className="p-5 bg-white">
                     <div className="flex text-left ">
