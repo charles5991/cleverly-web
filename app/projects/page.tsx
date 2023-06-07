@@ -1,7 +1,5 @@
 "use client";
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { Navigation } from "../components/nav";
 // import { Card } from "../components/card";
 import { Card } from "../components/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
@@ -57,7 +55,7 @@ export default function ProjectsPage() {
     setPurchases(calculatedPurchases);
     setRevenue(calculatedRevenue);
     setRoas((calculatedRevenue / budgetValue) * 100);
-    setRoas((revenue / budgetValue) * 1);
+    // setRoas((revenue / budgetValue) * 1);
   }, [budget, cpc, conversionRate, conversionToPurchase, averageSale]);
 
   return (
@@ -88,7 +86,7 @@ export default function ProjectsPage() {
                       className="my-6 mx-8"
                     ></img>
                     <p className="text-white w-50 text-lg font-semibold">
-                      BUDGET
+                      YOUR BUDGET
                     </p>
                     <div className="flex-grow">
                       <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
@@ -132,7 +130,7 @@ export default function ProjectsPage() {
                   <div className="flex items-center bg-blue-800">
                     <img src="./cpc.png" width={50} className="my-6 mx-8"></img>
                     <p className="text-white w-50 text-lg font-semibold">
-                      COST PER CLICK (CPC)
+                      YOUR CPC
                     </p>
                     <div className="flex-grow">
                       <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
@@ -179,7 +177,7 @@ export default function ProjectsPage() {
                       className="my-6 mx-8"
                     ></img>
                     <p className="text-white w-50 text-lg font-semibold pr-20">
-                      ESTIMATED CONVERSION RATE
+                      YOUR ESTIMATED CONVERSION RATE
                     </p>
                     <div className="flex-grow">
                       <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
@@ -191,7 +189,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                   <label className="block text-gray-500 px-6 pb-2">
-                    YOUR ESTIMATED CONVERSION RATE:
+                    YOUR ESTIMATED CONVERSION RATE
                     <p className="font-bold text-2xl text-black">
                       {conversionRate} %
                     </p>
@@ -229,7 +227,7 @@ export default function ProjectsPage() {
                       className="my-6 mx-8"
                     ></img>
                     <p className="text-white w-50 text-lg font-semibold">
-                      CONVERSION TO PURCHASE RATE
+                      YOUR CONVERSION TO PURCHASE RATE
                     </p>
                     <div className="flex-grow">
                       <p className="text-white text-sm text-center flex-grow-0 flex-shrink-0 pr-16">
@@ -289,7 +287,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                   <label className="block text-gray-500 px-6 pb-2">
-                    YOUR BUDGET
+                    AVERAGE SALE PER CUSTOMER
                     <p className="font-bold text-2xl text-black">
                       $ {averageSale}{" "}
                     </p>
@@ -343,7 +341,12 @@ export default function ProjectsPage() {
                         </div>
                         <div className="block text-gray-500 px-6 pb-2">
                           <p>NUMBER OF LEADS</p>
-                          <p className="font-bold text-2xl text-black">173</p>
+                          <p className="font-bold text-2xl text-black">
+                            {" "}
+                            {conversions.toLocaleString("en-US", {
+                              maximumFractionDigits: 0,
+                            })}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -384,7 +387,10 @@ export default function ProjectsPage() {
                         <div className="block text-gray-500 px-4 pb-2">
                           <p>EXPECTED PROFIT</p>
                           <p className="font-bold text-2xl text-black">
-                            $2,306,241
+                            ${" "}
+                            {(revenue - budget[0]).toLocaleString("en-US", {
+                              maximumFractionDigits: 0,
+                            })}
                           </p>
                         </div>
                       </div>
